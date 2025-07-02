@@ -1,51 +1,56 @@
-# Welcome to your Expo app 👋
+# React Native Authentication Flow with Expo Router & Protected Routes
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A complete authentication system built with **Expo SDK 53**, **Expo Router v5**, and **Expo Secure Store** featuring protected routes, persistent login, and a clean TypeScript implementation.
 
-## Get started
+## 🎥 Demo Video
 
-1. Install dependencies
+https://github.com/user-attachments/assets/87f978d5-ce7f-445a-9419-c71a1bb2cefe
 
-   ```bash
-   npm install
-   ```
+## ✨ Features
 
-2. Start the app
+- 🔐 **Complete Authentication Flow** - Sign in, sign up, and forgot password
+- 🛡️ **Protected Routes** - Automatic redirection based on authentication status
+- 💾 **Persistent Login** - Secure token storage with Expo Secure Store
+- 🚀 **Expo Router v5** - File-based routing with route groups
+- 📱 **Tab Navigation** - Bottom tabs for authenticated users
+- 🔄 **Loading States** - Smooth loading experience during auth operations
+- 🎯 **TypeScript** - Fully typed for better development experience
+- 🏗️ **Clean Architecture** - Context API for state management
 
-   ```bash
-   npx expo start
-   ```
+## 🛠️ Tech Stack
 
-In the output, you'll find options to open the app in a
+- **Expo SDK 53**
+- **Expo Router v5**
+- **React Native 0.79.4**
+- **TypeScript**
+- **Expo Secure Store**
+- **React Navigation v7**
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 📱 Screenshots
+<img width="345" alt="Captura de pantalla 2025-07-02 a la(s) 1 33 16 p  m" src="https://github.com/user-attachments/assets/ce8c92b0-1e64-40ec-ad85-a16a4add2ec5" />
+<img width="346" alt="Captura de pantalla 2025-07-02 a la(s) 1 33 46 p  m" src="https://github.com/user-attachments/assets/b4b9c40a-c522-437d-8eb9-0c24aaeda9be" />
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
 
-When you're ready, run:
+## 🚀 Getting Started
 
+### Prerequisites
+
+- Node.js (v18 or newer)
+- Expo CLI
+- iOS Simulator / Android Emulator or physical device
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run reset-project
-```
+git clone https://github.com/yourusername/expo-auth-protected-routes.git
+cd expo-auth-protected-routes
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Install dependencies:
 
-## Learn more
+npm install
 
-To learn more about developing your project with Expo, look at the following resources:
+Start the development server(EXPO GO):
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-# expo-auth-sdk53
+npx expo start
