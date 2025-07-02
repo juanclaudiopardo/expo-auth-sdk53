@@ -24,7 +24,6 @@ https://github.com/user-attachments/assets/87f978d5-ce7f-445a-9419-c71a1bb2cefe
 - **React Native 0.79.4**
 - **TypeScript**
 - **Expo Secure Store**
-- **React Navigation v7**
 
 ## 📱 Screenshots
 <img width="345" alt="Captura de pantalla 2025-07-02 a la(s) 1 33 16 p  m" src="https://github.com/user-attachments/assets/ce8c92b0-1e64-40ec-ad85-a16a4add2ec5" />
