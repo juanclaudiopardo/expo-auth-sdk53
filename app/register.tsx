@@ -1,4 +1,4 @@
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import React, { useState } from 'react';
 import {
   ActivityIndicator,
@@ -11,36 +11,50 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { useAuth } from '../context/AuthContext';
 
-export default function SignIn() {
+export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [name, setName] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { signIn } = useAuth();
 
-  const handleSignIn = async () => {
-    if (!email.trim() || !password.trim()) {
-      Alert.alert('Error', 'Por favor ingresa email y contraseña');
+  const handleRegister = async () => {
+    if (
+      !email.trim() ||
+      !password.trim() ||
+      !confirmPassword.trim() ||
+      !name.trim()
+    ) {
+      Alert.alert('Error', 'Por favor completa todos los campos');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      Alert.alert('Error', 'Las contraseñas no coinciden');
       return;
     }
 
     try {
       setIsSubmitting(true);
-      await signIn(email.trim(), password);
-    } catch (error) {
+      // Simular registro - reemplaza con tu API real
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       Alert.alert(
-        'Error',
-        error instanceof Error ? error.message : 'Error al iniciar sesión'
+        'Registro exitoso',
+        'Tu cuenta ha sido creada. Ahora puedes iniciar sesión.',
+        [
+          {
+            text: 'OK',
+            onPress: () => router.replace('/sign-in'),
+          },
+        ]
       );
+    } catch (error) {
+      Alert.alert('Error', 'Error al crear la cuenta');
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const fillTestCredentials = () => {
-    setEmail('test@example.com');
-    setPassword('password');
   };
 
   return (
@@ -49,7 +63,18 @@ export default function SignIn() {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <View style={styles.form}>
-        <Text style={styles.title}>Iniciar Sesión</Text>
+        <Text style={styles.title}>Crear Cuenta</Text>
+
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Nombre</Text>
+          <TextInput
+            style={styles.input}
+            value={name}
+            onChangeText={setName}
+            placeholder='Tu nombre completo'
+            editable={!isSubmitting}
+          />
+        </View>
 
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Email</Text>
@@ -77,43 +102,36 @@ export default function SignIn() {
           />
         </View>
 
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Confirmar Contraseña</Text>
+          <TextInput
+            style={styles.input}
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
+            secureTextEntry
+            placeholder='Confirma tu contraseña'
+            editable={!isSubmitting}
+          />
+        </View>
+
         <TouchableOpacity
           style={[styles.button, isSubmitting && styles.buttonDisabled]}
-          onPress={handleSignIn}
+          onPress={handleRegister}
           disabled={isSubmitting}
         >
           {isSubmitting ? (
             <ActivityIndicator color='#fff' />
           ) : (
-            <Text style={styles.buttonText}>Iniciar Sesión</Text>
+            <Text style={styles.buttonText}>Crear Cuenta</Text>
           )}
         </TouchableOpacity>
 
-        {/* Enlaces de navegación */}
-        <View style={styles.linksContainer}>
-          <Link href='/forgot-password' style={styles.forgotLink}>
-            ¿Olvidaste tu contraseña?
+        <View style={styles.linkContainer}>
+          <Text style={styles.linkText}>¿Ya tienes cuenta? </Text>
+          <Link href='/sign-in' style={styles.link}>
+            Iniciar Sesión
           </Link>
-
-          <View style={styles.registerContainer}>
-            <Text style={styles.registerText}>¿No tienes cuenta? </Text>
-            <Link href='/register' style={styles.registerLink}>
-              Regístrate
-            </Link>
-          </View>
         </View>
-
-        <TouchableOpacity
-          style={styles.testButton}
-          onPress={fillTestCredentials}
-          disabled={isSubmitting}
-        >
-          <Text style={styles.testButtonText}>Usar credenciales de prueba</Text>
-        </TouchableOpacity>
-
-        <Text style={styles.hint}>
-          Para probar: test@example.com / password
-        </Text>
       </View>
     </KeyboardAvoidingView>
   );
@@ -170,42 +188,19 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
   },
-  linksContainer: {
-    marginTop: 24,
-    alignItems: 'center',
-  },
-  forgotLink: {
-    fontSize: 16,
-    color: '#007AFF',
-    textDecorationLine: 'underline',
-    marginBottom: 16,
-  },
-  registerContainer: {
+  linkContainer: {
     flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 24,
   },
-  registerText: {
+  linkText: {
     fontSize: 16,
     color: '#666',
   },
-  registerLink: {
+  link: {
     fontSize: 16,
     color: '#007AFF',
     fontWeight: '600',
-  },
-  testButton: {
-    marginTop: 32,
-    alignItems: 'center',
-  },
-  testButtonText: {
-    color: '#007AFF',
-    fontSize: 16,
-    textDecorationLine: 'underline',
-  },
-  hint: {
-    textAlign: 'center',
-    marginTop: 16,
-    color: '#666',
-    fontSize: 14,
   },
 });
