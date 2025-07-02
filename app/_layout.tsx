@@ -26,9 +26,9 @@ function RootLayoutNav() {
           <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
         </Stack.Protected>
         <Stack.Protected guard={!isAuthenticated}>
-          <Stack.Screen name='sign-in' options={{ headerShown: false }} />
-          <Stack.Screen name='register' />
-          <Stack.Screen name='forgot-password' />
+          <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+          {/* <Stack.Screen name='register' />
+          <Stack.Screen name='forgot-password' /> */}
         </Stack.Protected>
       </Stack>
     </>
