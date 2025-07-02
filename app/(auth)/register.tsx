@@ -63,15 +63,15 @@ export default function Register() {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <View style={styles.form}>
-        <Text style={styles.title}>Crear Cuenta</Text>
+        <Text style={styles.title}>Create Account</Text>
 
         <View style={styles.inputContainer}>
-          <Text style={styles.label}>Nombre</Text>
+          <Text style={styles.label}>Name</Text>
           <TextInput
             style={styles.input}
             value={name}
             onChangeText={setName}
-            placeholder='Tu nombre completo'
+            placeholder='Your full name'
             editable={!isSubmitting}
           />
         </View>
@@ -85,31 +85,31 @@ export default function Register() {
             keyboardType='email-address'
             autoCapitalize='none'
             autoCorrect={false}
-            placeholder='tu@email.com'
+            placeholder='you@email.com'
             editable={!isSubmitting}
           />
         </View>
 
         <View style={styles.inputContainer}>
-          <Text style={styles.label}>Contraseña</Text>
+          <Text style={styles.label}>Password</Text>
           <TextInput
             style={styles.input}
             value={password}
             onChangeText={setPassword}
             secureTextEntry
-            placeholder='Tu contraseña'
+            placeholder='Your password'
             editable={!isSubmitting}
           />
         </View>
 
         <View style={styles.inputContainer}>
-          <Text style={styles.label}>Confirmar Contraseña</Text>
+          <Text style={styles.label}>Confirm Password</Text>
           <TextInput
             style={styles.input}
             value={confirmPassword}
             onChangeText={setConfirmPassword}
             secureTextEntry
-            placeholder='Confirma tu contraseña'
+            placeholder='Confirm your password'
             editable={!isSubmitting}
           />
         </View>
@@ -122,14 +122,14 @@ export default function Register() {
           {isSubmitting ? (
             <ActivityIndicator color='#fff' />
           ) : (
-            <Text style={styles.buttonText}>Crear Cuenta</Text>
+            <Text style={styles.buttonText}>Create Account</Text>
           )}
         </TouchableOpacity>
 
         <View style={styles.linkContainer}>
-          <Text style={styles.linkText}>¿Ya tienes cuenta? </Text>
+          <Text style={styles.linkText}>Already have an account? </Text>
           <Link href='/sign-in' style={styles.link}>
-            Iniciar Sesión
+            Sign In
           </Link>
         </View>
       </View>

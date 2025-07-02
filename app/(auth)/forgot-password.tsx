@@ -50,11 +50,11 @@ export default function ForgotPassword() {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <View style={styles.form}>
-        <Text style={styles.title}>Recuperar Contraseña</Text>
+        <Text style={styles.title}>Recover Password</Text>
 
         <Text style={styles.description}>
-          Ingresa tu email y te enviaremos un enlace para restablecer tu
-          contraseña.
+          Enter your email and we&apos;ll send you a link to reset your
+          password.
         </Text>
 
         <View style={styles.inputContainer}>
@@ -79,14 +79,14 @@ export default function ForgotPassword() {
           {isSubmitting ? (
             <ActivityIndicator color='#fff' />
           ) : (
-            <Text style={styles.buttonText}>Enviar Enlace</Text>
+            <Text style={styles.buttonText}>Send Link</Text>
           )}
         </TouchableOpacity>
 
         <View style={styles.linkContainer}>
-          <Text style={styles.linkText}>¿Recordaste tu contraseña? </Text>
+          <Text style={styles.linkText}>Remember your password? </Text>
           <Link href='/sign-in' style={styles.link}>
-            Iniciar Sesión
+            Sign In
           </Link>
         </View>
       </View>

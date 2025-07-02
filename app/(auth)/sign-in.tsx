@@ -49,7 +49,7 @@ export default function SignIn() {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <View style={styles.form}>
-        <Text style={styles.title}>Iniciar Sesión</Text>
+        <Text style={styles.title}>Sign In</Text>
 
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Email</Text>
@@ -60,13 +60,13 @@ export default function SignIn() {
             keyboardType='email-address'
             autoCapitalize='none'
             autoCorrect={false}
-            placeholder='tu@email.com'
+            placeholder='your@email.com'
             editable={!isSubmitting}
           />
         </View>
 
         <View style={styles.inputContainer}>
-          <Text style={styles.label}>Contraseña</Text>
+          <Text style={styles.label}>Password</Text>
           <TextInput
             style={styles.input}
             value={password}
@@ -85,20 +85,22 @@ export default function SignIn() {
           {isSubmitting ? (
             <ActivityIndicator color='#fff' />
           ) : (
-            <Text style={styles.buttonText}>Iniciar Sesión</Text>
+            <Text style={styles.buttonText}>Sign In</Text>
           )}
         </TouchableOpacity>
 
         {/* Enlaces de navegación */}
         <View style={styles.linksContainer}>
           <Link href='/forgot-password' style={styles.forgotLink}>
-            ¿Olvidaste tu contraseña?
+            Forgot your password?
           </Link>
 
           <View style={styles.registerContainer}>
-            <Text style={styles.registerText}>¿No tienes cuenta? </Text>
+            <Text style={styles.registerText}>
+              Don&apos;t have an account?{' '}
+            </Text>
             <Link href='/register' style={styles.registerLink}>
-              Regístrate
+              Sign up
             </Link>
           </View>
         </View>
@@ -108,12 +110,10 @@ export default function SignIn() {
           onPress={fillTestCredentials}
           disabled={isSubmitting}
         >
-          <Text style={styles.testButtonText}>Usar credenciales de prueba</Text>
+          <Text style={styles.testButtonText}>Use test credentials</Text>
         </TouchableOpacity>
 
-        <Text style={styles.hint}>
-          Para probar: test@example.com / password
-        </Text>
+        <Text style={styles.hint}>To test: test@example.com / password</Text>
       </View>
     </KeyboardAvoidingView>
   );
